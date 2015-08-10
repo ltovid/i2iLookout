@@ -15,7 +15,11 @@
         <activity
             android:name=".IntroActivity"
             android:label="@string/title_activity_main" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".StartActivity"
@@ -32,7 +36,8 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.app.i2i.lookout.StartActivity" />
-        </activity>
+
+                </activity>
         <activity
             android:name=".SignUpActivity"
             android:label="@string/title_activity_sign_up"
@@ -48,11 +53,7 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 
