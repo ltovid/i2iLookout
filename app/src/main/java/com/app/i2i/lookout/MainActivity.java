@@ -3,6 +3,7 @@ package com.app.i2i.lookout;
 import android.app.Fragment;
 import android.app.ListActivity;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -26,8 +27,6 @@ public class MainActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
     Stack<Fragment> fragmentStack;
 
-    String myemail;
-
     String[] android_versions = {
             "Community", "Services", "Events"};
 
@@ -38,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        fragmentStack = new Stack<Fragment>();
+        fragmentStack = new Stack<Fragment> ();
 
         // Initializing Toolbar and setting it as the actionbar
         toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -100,20 +99,40 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.starred:
                         Toast.makeText(getApplicationContext(), "Stared Selected", Toast.LENGTH_SHORT).show();
                         return true;
-                    case R.id.sent_mail:
+                   /* case R.id.sent_mail:
                         Toast.makeText(getApplicationContext(), "Send Selected", Toast.LENGTH_SHORT).show();
                         return true;
                     case R.id.drafts:
                         Toast.makeText(getApplicationContext(), "Drafts Selected", Toast.LENGTH_SHORT).show();
+                        return true;*/
+                    case R.id.police:
+                        Intent police = new Intent(Intent.ACTION_CALL, Uri.parse("tel:0000000000"));
+                        try{
+                        startActivity(police);
+                    }
+                        catch (android.content.ActivityNotFoundException ex){
+                            Toast.makeText(getApplicationContext(),"yourActivity is not founded",Toast.LENGTH_SHORT).show();
+                        }
+
+
                         return true;
-                    case R.id.allmail:
-                        Toast.makeText(getApplicationContext(), "All Mail Selected", Toast.LENGTH_SHORT).show();
+                    case R.id.fire:
+                        Intent fire = new Intent(Intent.ACTION_CALL, Uri.parse("tel:0000000000"));
+                        try{
+                            startActivity(fire);
+                        }
+                        catch (android.content.ActivityNotFoundException ex){
+                            Toast.makeText(getApplicationContext(),"yourActivity is not founded",Toast.LENGTH_SHORT).show();
+                        }
                         return true;
-                    case R.id.trash:
-                        Toast.makeText(getApplicationContext(), "Trash Selected", Toast.LENGTH_SHORT).show();
-                        return true;
-                    case R.id.spam:
-                        Toast.makeText(getApplicationContext(), "Spam Selected", Toast.LENGTH_SHORT).show();
+                    case R.id.hospital:
+                        Intent hospital = new Intent(Intent.ACTION_CALL, Uri.parse("tel:0000000000"));
+                        try{
+                            startActivity(hospital);
+                        }
+                        catch (android.content.ActivityNotFoundException ex){
+                            Toast.makeText(getApplicationContext(),"yourActivity is not founded",Toast.LENGTH_SHORT).show();
+                        }
                         return true;
                     default:
                         Toast.makeText(getApplicationContext(), "Somethings Wrong", Toast.LENGTH_SHORT).show();

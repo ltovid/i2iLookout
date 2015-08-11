@@ -8,16 +8,16 @@
     android:fitsSystemWindows="true"
     app:headerLayout="@layout/header"
     app:menu="@menu/drawer"
-    tools:context=".MainActivity">
+>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <include
-            android:id="@+id/toolbar"
-            layout="@layout/tool_bar" />
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/tool_bar" />
 
         <FrameLayout
             android:id="@+id/frame"
@@ -63,16 +63,7 @@
                 android:layout_marginTop="@dimen/activity_horizontal_margin">
 
             </ListView>
-            <fragment class="com.app.i2i.lookout.ContentFragment"
-                android:id="@+id/titles"
-                android:layout_width="match_parent" android:layout_height="match_parent"
-                tools:layout="@layout/content_fragment" />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/imageView"
-                android:layout_gravity="left|bottom" />
 
         </FrameLayout>
 

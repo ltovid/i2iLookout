@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    android:clickable="true"
+    >
 
-    <group android:checkableBehavior="single">
+    <group android:clickable="false">
 
         <item
             android:id="@+id/inbox"
@@ -13,29 +15,26 @@
             android:checked="false"
             android:title="@string/starred_string" />
 
-        <item
-            android:id="@+id/sent_mail"
-            android:checked="false"
-            android:title="@string/sent_mail_string" />
 
-        <item
-            android:id="@+id/drafts"
-            android:checked="false"
-            android:title="@string/draft_string" />
+</group>
 
-
-        <item
-            android:id="@+id/allmail"
-            android:checked="false"
-            android:title="@string/all_mail_string" />
-        <item
-            android:id="@+id/trash"
-            android:checked="false"
-            android:title="@string/trash_string" />
-        <item
-            android:id="@+id/spam"
-            android:checked="false"
-            android:title="@string/spam_string" />
-
-    </group>
+    <item android:title="Emergency Services">
+        <menu>
+            <item
+                android:id="@+id/police"
+                android:checked="false"
+                android:title="@string/police"
+                android:icon="@drawable/police_station"/>
+            <item
+                android:id="@+id/fire"
+                android:checked="false"
+                android:title="@string/fire"
+                android:icon="@drawable/fire_station"/>
+            <item
+                android:id="@+id/hospital"
+                android:checked="false"
+                android:title="@string/hospital"
+                android:icon="@drawable/hospital"/>
+        </menu>
+    </item>
 </menu>
