@@ -65,5 +65,6 @@
     <string name="addrNum">House#</string>
     <string name="buttonJoinCommunity">Join this Community</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_onboarding">Onboarding</string>
 
 </resources>

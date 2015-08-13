@@ -34,8 +34,8 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/separator"
-            >
+            android:layout_below="@+id/separator">
+
             <TextView
                 android:id="@+id/signUpHeader"
                 android:layout_width="fill_parent"
@@ -43,7 +43,7 @@
                 android:gravity="start"
                 android:text="@string/email_signup"
                 android:textStyle="bold"
-                android:textSize="16sp"/>
+                android:textSize="16sp" />
 
             <LinearLayout
                 android:id="@+id/NameWrapper"
@@ -58,7 +58,7 @@
                     android:layout_marginTop="@dimen/TopMargin16"
                     android:hint="@string/first_name"
                     android:inputType="textPersonName"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1" />
 
                 <EditText
                     android:id="@+id/signUp_Lastname"
@@ -67,7 +67,7 @@
                     android:layout_marginTop="@dimen/TopMargin16"
                     android:hint="@string/last_name"
                     android:inputType="textPersonName"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1" />
             </LinearLayout>
 
             <EditText
@@ -97,8 +97,7 @@
                 android:layout_below="@id/signIn_password"
                 android:layout_marginTop="@dimen/TopMargin32"
                 android:text="@string/button_next"
-                android:onClick="JoinCommunity"/>
-
+                android:onClick="JoinCommunity" />
 
 
             <TextView
@@ -110,7 +109,7 @@
 
                 android:textSize="@dimen/abc_text_size_small_material"
                 android:visibility="visible"
-                android:layout_below="@id/signInActiviy"/>
+                android:layout_below="@id/signInActiviy" />
         </RelativeLayout>
     </RelativeLayout>
 </RelativeLayout>

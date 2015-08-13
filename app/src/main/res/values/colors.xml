@@ -22,6 +22,11 @@
     <color name="navigationBarColor">#000000</color>
     <color name="colorAccent">#ea5d88</color>
 
+    <color name="fab_color_1">#ff5252</color>
+    <color name="fab_color_1_muted">#ff8080</color>
+    <color name="fab_color_2">#9c27b0</color>
+    <color name="fab_color_2_muted">#a56ab0</color>
+
     <color name="bg_view_sms">#ffd423</color>
     <color name="bg_view_otp">#fc6d38</color>
 </resources>

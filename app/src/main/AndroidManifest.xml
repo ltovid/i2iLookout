@@ -6,8 +6,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <!-- if you want to load images from a file OR from the internet -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
-    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <application
@@ -18,7 +17,6 @@
         <activity
             android:name=".IntroActivity"
             android:label="@string/title_activity_main" >
-
         </activity>
         <activity
             android:name=".StartActivity"
@@ -35,8 +33,7 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.app.i2i.lookout.StartActivity" />
-
-                </activity>
+        </activity>
         <activity
             android:name=".SignUpActivity"
             android:label="@string/title_activity_sign_up"

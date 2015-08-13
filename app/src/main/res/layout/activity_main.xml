@@ -7,17 +7,16 @@
     android:layout_gravity="start"
     android:fitsSystemWindows="true"
     app:headerLayout="@layout/header"
-    app:menu="@menu/drawer"
->
+    app:menu="@menu/drawer">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-    <include
-        android:id="@+id/toolbar"
-        layout="@layout/tool_bar" />
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/tool_bar" />
 
         <FrameLayout
             android:id="@+id/frame"
@@ -38,7 +37,6 @@
                     android:layout_height="190dp"
                     android:scaleType="centerCrop"
                     android:src="@drawable/dish_sample" />
-
 
 
                 <TextView
@@ -65,8 +63,21 @@
             </ListView>
 
 
-        </FrameLayout>
+            <android.support.design.widget.CoordinatorLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/fab"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|bottom"
+                    android:layout_margin="16dp"
+                    android:src="@drawable/ic_add" />
+
+            </android.support.design.widget.CoordinatorLayout>
+        </FrameLayout>
 
 
     </LinearLayout>

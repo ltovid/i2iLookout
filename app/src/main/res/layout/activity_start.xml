@@ -13,45 +13,46 @@
     tools:context="com.support.android.i2irebuild.StartActivity">
 
 
-
-<RelativeLayout
-    android:layout_width="wrap_content"
-    android:layout_height="match_parent"
-    android:gravity="center_vertical">
-    <ImageView
+    <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="250dp"
-        android:id="@+id/imageView2"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical">
 
-        android:src="@drawable/owl2"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-       />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="250dp"
+            android:id="@+id/imageView2"
+
+            android:src="@drawable/owl2"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
     </RelativeLayout>
+
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:gravity="bottom">
-    <Button
-        android:id="@+id/signUp"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/abc_action_button_min_height_material"
-        android:text="@string/button_sign_up"
-        android:layout_marginTop="@dimen/TopMargin16"
-        android:background="@color/colorPrimaryDark"
 
-        android:onClick="signUp"/>
+        <Button
+            android:id="@+id/signUp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/abc_action_button_min_height_material"
+            android:text="@string/button_sign_up"
+            android:layout_marginTop="@dimen/TopMargin16"
+            android:background="@color/colorPrimaryDark"
 
-    <Button
-        android:id="@+id/signIn"
-        android:layout_below="@id/signUp"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/abc_action_button_min_height_material"
-        android:text="@string/button_sign_in"
-        android:background="@color/colorPrimary"
-        android:layout_marginTop="@dimen/TopMargin16"
-        android:onClick="signIn"/>
-</RelativeLayout>
+            android:onClick="signUp" />
+
+        <Button
+            android:id="@+id/signIn"
+            android:layout_below="@id/signUp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/abc_action_button_min_height_material"
+            android:text="@string/button_sign_in"
+            android:background="@color/colorPrimary"
+            android:layout_marginTop="@dimen/TopMargin16"
+            android:onClick="signIn" />
+    </RelativeLayout>
 
 </RelativeLayout>

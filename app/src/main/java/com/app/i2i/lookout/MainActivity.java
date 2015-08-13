@@ -1,10 +1,15 @@
 package com.app.i2i.lookout;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.Fragment;
 import android.app.ListActivity;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -21,11 +26,16 @@ import android.widget.Toast;
 
 import java.util.Stack;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends LoginActivity {
     Toolbar toolbar;
     NavigationView navigationView;
     DrawerLayout drawerLayout;
     Stack<Fragment> fragmentStack;
+
+    public final int CATEGORY_ID =0;
+    private Context mContext;
+    Dialog dialog;
+    /** Called when the activity is first created. */
 
     String[] android_versions = {
             "Community", "Services", "Events"};
@@ -45,6 +55,21 @@ public class MainActivity extends AppCompatActivity {
             setSupportActionBar(toolbar);
         }
 
+        //FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+
+        findViewById(R.id.fab).setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                //Write here anything that you wish to do on click of FAB
+                // Code to Add an item with default animation
+                Snackbar.make(v, "Hello Snackbar", Snackbar.LENGTH_LONG).show();
+
+
+
+            }
+        });
+
 
         listView = (ListView) findViewById(R.id.id_list_view);// object initialization
 
@@ -60,6 +85,8 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(getBaseContext(), parent.getItemAtPosition(position) + " is Selected", Toast.LENGTH_LONG).show();
             }
         });
+
+
 
 
         //Initializing NavigationView
