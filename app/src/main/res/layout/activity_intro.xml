@@ -1,21 +1,47 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:tmall="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/primary_light"
+    android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:background="@color/primary_light"
     tools:context="com.support.android.i2irebuild.IntroActivity">
 
+    <RelativeLayout
+        android:id="@+id/slider"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/button"
+        android:layout_marginBottom="@dimen/TopMargin16">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/pager"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+
+            />
+
+        <com.app.i2i.lookout.CirclePageIndicator
+            android:id="@+id/indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:padding="10dip" />
+
+    </RelativeLayout>
 
     <Button
+        android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="@dimen/abc_action_button_min_height_material"
-        android:text="@string/button_get_started"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimaryDark"
         android:onClick="startPage"
-        android:layout_alignParentBottom="true" />
+        android:text="@string/button_get_started" />
+
 
 </RelativeLayout>

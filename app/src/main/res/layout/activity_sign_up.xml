@@ -21,13 +21,14 @@
             android:id="@+id/sign_in_button"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="30dip" />
+            android:layout_marginBottom="16dp" />
 
         <TextView
             android:id="@+id/separator"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/sign_in_button"
+            android:layout_marginBottom="@dimen/TopMargin16"
             android:gravity="center"
             android:text="@string/separator" />
 
@@ -40,15 +41,17 @@
                 android:id="@+id/signUpHeader"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:gravity="start"
+                android:background="@color/colorPrimary"
+                android:gravity="center"
+                android:padding="10dp"
                 android:text="@string/email_signup"
-                android:textStyle="bold"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <LinearLayout
                 android:id="@+id/NameWrapper"
-                android:layout_height="wrap_content"
                 android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
                 android:layout_below="@id/signUpHeader">
 
                 <EditText
@@ -56,18 +59,18 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/TopMargin16"
+                    android:layout_weight="1"
                     android:hint="@string/first_name"
-                    android:inputType="textPersonName"
-                    android:layout_weight="1" />
+                    android:inputType="textPersonName" />
 
                 <EditText
                     android:id="@+id/signUp_Lastname"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/TopMargin16"
+                    android:layout_weight="1"
                     android:hint="@string/last_name"
-                    android:inputType="textPersonName"
-                    android:layout_weight="1" />
+                    android:inputType="textPersonName" />
             </LinearLayout>
 
             <EditText
@@ -96,20 +99,20 @@
                 android:layout_height="@dimen/abc_action_button_min_height_material"
                 android:layout_below="@id/signIn_password"
                 android:layout_marginTop="@dimen/TopMargin32"
-                android:text="@string/button_next"
-                android:onClick="JoinCommunity" />
+                android:onClick="JoinCommunity"
+                android:text="@string/button_next" />
 
 
             <TextView
                 android:id="@+id/agreement"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/signInActiviy"
                 android:layout_marginTop="@dimen/TopMargin16"
-                android:text="@string/agreement"
 
+                android:text="@string/agreement"
                 android:textSize="@dimen/abc_text_size_small_material"
-                android:visibility="visible"
-                android:layout_below="@id/signInActiviy" />
+                android:visibility="visible" />
         </RelativeLayout>
     </RelativeLayout>
 </RelativeLayout>
