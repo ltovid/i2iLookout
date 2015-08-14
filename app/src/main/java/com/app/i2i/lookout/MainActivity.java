@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.app.Fragment;
 import android.app.ListActivity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.design.widget.FloatingActionButton;
@@ -21,27 +22,44 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.Stack;
 
 public class MainActivity extends LoginActivity {
+    public final int CATEGORY_ID = 0;
     Toolbar toolbar;
     NavigationView navigationView;
     DrawerLayout drawerLayout;
     Stack<Fragment> fragmentStack;
-
-    public final int CATEGORY_ID =0;
-    private Context mContext;
     Dialog dialog;
     /** Called when the activity is first created. */
 
     String[] android_versions = {
             "Community", "Services", "Events"};
+    GridView grid;
+    String[] web = {
+            "Google",
+            "Github",
+            "Instagram",
+            "Facebook",
+            "Flickr",
+            "Pinterest",
 
+    };
+    int[] imageId = {
+            R.drawable.car_theft,
+            R.drawable.burglary,
+            R.drawable.robbery,
+            R.drawable.flooding,
+            R.drawable.shooting,
+            R.drawable.pickpocket,
+            R.drawable.warning};
     ListView listView;//List View object declaration
     ArrayAdapter<String> adapter;
+    private Context mContext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,8 +81,55 @@ public class MainActivity extends LoginActivity {
             public void onClick(View v) {
                 //Write here anything that you wish to do on click of FAB
                 // Code to Add an item with default animation
-                Snackbar.make(v, "Hello Snackbar", Snackbar.LENGTH_LONG).show();
+                // Snackbar.make(v, "Hello Snackbar", Snackbar.LENGTH_LONG).show();
 
+                // TODO Auto-generated method stub
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                builder.setTitle("Alert Dialog");
+                builder.setMessage("This is Example of Alert Dialog with three Buttons");
+
+                CustomGrid adapter = new CustomGrid(MainActivity.this, web, imageId);
+                //  grid=(GridView)findViewById(R.id.grid);
+                grid.setAdapter(adapter);
+                grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view,
+                                            int position, long id) {
+                        Toast.makeText(MainActivity.this, "You Clicked at " + web[+position], Toast.LENGTH_SHORT).show();
+
+                    }
+                });
+
+
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface arg0, int arg1) {
+                        // TODO Auto-generated method stub
+                        Toast.makeText(getApplicationContext(), "Ok is clicked", Toast.LENGTH_LONG).show();
+
+                    }
+                });
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface arg0, int arg1) {
+                        // TODO Auto-generated method stub
+                        Toast.makeText(getApplicationContext(), "Cancel is clicked", Toast.LENGTH_LONG).show();
+
+                    }
+                });
+                builder.setNeutralButton("Close", new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface arg0, int arg1) {
+                        // TODO Auto-generated method stub
+                        Toast.makeText(getApplicationContext(), "Close is clicked", Toast.LENGTH_LONG).show();
+
+                    }
+                });
+                builder.show(); //To show the AlertDialog
 
 
             }
