@@ -1,15 +1,17 @@
 package com.app.i2i.lookout;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.telephony.TelephonyManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
 import android.widget.EditText;
-
+import android.widget.Toast;
 
 import com.google.android.gms.common.Scopes;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -48,7 +50,7 @@ public class SignInActivity extends LoginActivity {
 
         //registerLink.setOnClickListener(this);  //Register Link not Created Yet
 
-        //button for Goggle sign-in
+        //button for Google sign-in
         findViewById(R.id.sign_in_button).setOnClickListener(this);
 
         mToolbar = (Toolbar) findViewById(R.id.toolbarSignIn);
@@ -58,6 +60,7 @@ public class SignInActivity extends LoginActivity {
 
 
         userLocalStore = new UserLocalStore(this);
+
 
     }
 
@@ -97,9 +100,12 @@ public class SignInActivity extends LoginActivity {
                 String username = etUsername.getText().toString();
                 String password = etPassword.getText().toString();
 
-
+                String device = getUserDevice(getApplicationContext());
 
                 User user = new User(username, password);
+
+                user.device=device;
+
                 authenticate(user);
                 break;
 
@@ -133,7 +139,14 @@ public class SignInActivity extends LoginActivity {
     private void logUserIn(User returnedUser) {
         userLocalStore.storeUserData(returnedUser);
         userLocalStore.setUserLoggedIn(true);
+        Toast.makeText(getApplicationContext(), "Hello " + returnedUser.firstName, Toast.LENGTH_LONG).show();
         startActivity(new Intent(this, MainActivity.class));
+    }
+
+    public String getUserDevice(Context context){
+
+        TelephonyManager mngr = (TelephonyManager)context.getSystemService(Context.TELEPHONY_SERVICE);
+        return mngr.getDeviceId();
     }
 
 

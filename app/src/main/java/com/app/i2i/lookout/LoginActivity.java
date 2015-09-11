@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -79,8 +80,10 @@ public class LoginActivity extends AppCompatActivity implements
         mShouldResolve = true;
         mGoogleApiClient.connect();
 
-        // Show a message to the user that we are signing in.
-        //mStatusTextView.setText(R.string.signing_in);
+        if(mShouldResolve){
+            Intent i = new Intent(this, MainActivity.class);
+            startActivity(i);
+        }
     }
 
     private void onSignOutClicked() {
