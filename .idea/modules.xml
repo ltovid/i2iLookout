@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/lookout.iml" filepath="$PROJECT_DIR$/lookout.iml" />
+      <module fileurl="file://$PROJECT_DIR$/i2iLookout.iml" filepath="$PROJECT_DIR$/i2iLookout.iml" />
     </modules>
   </component>
 </project>

@@ -7,6 +7,6 @@ interface GetUserCallback {
      * Invoked when background task is completed
      */
 
-    public abstract void done(com.app.i2i.lookout.User returnedUser);
+    void done(com.app.i2i.lookout.User returnedUser);
 }
 

@@ -1,8 +1,10 @@
 package com.app.i2i.lookout;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.telephony.TelephonyManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,18 +16,21 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.Scope;
 import com.google.android.gms.plus.Plus;
 
-
 public class SignUpActivity extends LoginActivity {
     Toolbar mToolbar;
-    EditText etFName, etLName, etUsername, etPassword;
+    EditText etFName, etLName, etUsername, etPassword, etCity;
+
+    UserLocalStore userLocalStore; //Shared Preference Name
 
     //this is the button to sign-in with email and password
-
+    User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
+
+        userLocalStore = new UserLocalStore(this);
 
         mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .addConnectionCallbacks(this)
@@ -38,6 +43,7 @@ public class SignUpActivity extends LoginActivity {
         etLName = (EditText) findViewById(R.id.signUp_Lastname);
         etUsername = (EditText) findViewById(R.id.signUp_email_address);
         etPassword = (EditText) findViewById(R.id.signIn_password);
+        etCity = (EditText) findViewById(R.id.signUp_city_address);
 
         //This is the NEXT button on activity_sign_up.xml
         findViewById(R.id.signInActiviy).setOnClickListener(this);
@@ -56,6 +62,7 @@ public class SignUpActivity extends LoginActivity {
             }
         });
 
+
     }
 
     @Override
@@ -66,12 +73,24 @@ public class SignUpActivity extends LoginActivity {
                 String lastName = etLName.getText().toString();
                 String userName = etUsername.getText().toString();
                 String password = etPassword.getText().toString();
-                password = BCrypt.hashpw(password, BCrypt.gensalt());
+                String homeGroup = etCity.getText().toString();
 
-                User user = new User(firstName, lastName, userName, password);
+                String device = getUserDevice(getApplicationContext());
+
+                user = new User(firstName, lastName, userName, password, device);
+
+                user.homeGroup = homeGroup;
+
+
                 registerUser(user);
                 break;
         }
+    }
+
+    public String getUserDevice(Context context) {
+
+        TelephonyManager mngr = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+        return mngr.getDeviceId();
     }
 
 
@@ -102,9 +121,33 @@ public class SignUpActivity extends LoginActivity {
         serverRequest.storeUserDataInBackground(user, new GetUserCallback() {
             @Override
             public void done(User returnedUser) {
-                Intent joinGroup = new Intent(SignUpActivity.this, com.app.i2i.lookout.JoinCommunityActivity.class);
-                startActivity(joinGroup);
+
             }
         });
-    }
+
+
+        //ServerRequests serverRequest = new ServerRequests(this);
+        serverRequest.fetchUserDataAsyncTask(user, new GetUserCallback() {
+            @Override
+            public void done(User returnedUser) {
+                if (returnedUser != null) {
+                    if (returnedUser.status != 3) {
+                        //Intent joinGroup = new Intent(SignUpActivity.this, com.app.i2i.lookout.JoinCommunityActivity.class);
+                        Toast.makeText(getApplicationContext(), "Hello " + returnedUser.firstName, Toast.LENGTH_LONG).show();
+                        Intent mainActivity = new Intent(SignUpActivity.this, com.app.i2i.lookout.MainActivity.class);
+                        startActivity(mainActivity);
+                    } else {
+                        Toast.makeText(getApplicationContext(), "User is already registered, please sign in", Toast.LENGTH_LONG).show();
+                    }
+                } else {
+                    Toast.makeText(getApplicationContext(), "Error on registration, Please try again", Toast.LENGTH_LONG).show();
+                }
+
+            }
+        });
+
+
+    }//end of registerUser
+
+
 }
