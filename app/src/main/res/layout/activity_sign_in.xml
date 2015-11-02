@@ -1,31 +1,23 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/primary_light"
-   >
+    android:background="@color/primary_light">
 
-    <include
-        android:id="@+id/toolbarSignIn"
-        layout="@layout/toolbar_sign_in" />
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:src="@drawable/logo" />
 
     <RelativeLayout
         android:id="@+id/wrapper"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/toolbarSignIn"
+        android:layout_below="@id/imageView3"
         android:layout_marginLeft="@dimen/activity_horizontal_margin"
         android:layout_marginRight="@dimen/activity_horizontal_margin"
         android:layout_marginTop="@dimen/activity_horizontal_margin">
-
-        <TextView
-            android:id="@+id/agreement"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/TopMargin16"
-            android:text="@string/agreement"
-            android:textSize="@dimen/abc_text_size_small_material"
-            android:visibility="visible" />
 
 
         <TextView
@@ -33,8 +25,8 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/signInActiviy"
-            android:layout_marginBottom="@dimen/TopMargin16"
-            android:layout_marginTop="@dimen/TopMargin16"
+            android:layout_marginBottom="@dimen/TopMargin8"
+            android:layout_marginTop="@dimen/TopMargin8"
             android:gravity="center"
             android:text="@string/separator"
 
@@ -45,16 +37,15 @@
             android:id="@+id/emailWrapper"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/agreement"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp">
+            android:layout_centerHorizontal="true">
 
         <EditText
             android:id="@+id/signIn_email_address"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/separator"
-            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:background="@color/white"
+            android:drawableLeft="@drawable/ic_email_black_24dp"
             android:hint="@string/email_hint"
             android:inputType="textEmailAddress"
             android:padding="5dp"
@@ -68,15 +59,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/emailWrapper"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp">
+            android:layout_centerHorizontal="true">
 
         <EditText
             android:id="@+id/signIn_password"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/signIn_email_address"
-            android:layout_marginTop="@dimen/TopMargin16"
+            android:background="@color/white"
+            android:drawableLeft="@drawable/ic_lock_outline_black_24dp"
             android:hint="@string/password_hint"
             android:inputType="textPassword"
             android:padding="5dp"

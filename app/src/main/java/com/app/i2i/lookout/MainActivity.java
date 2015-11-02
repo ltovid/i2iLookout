@@ -14,6 +14,8 @@ import android.os.Handler;
 import android.os.ResultReceiver;
 import android.provider.Settings;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -22,9 +24,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -47,44 +47,30 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
     // LogCat tag
     private final static String TAG = MainActivity.class.getSimpleName();
     private final static int PLAY_SERVICES_RESOLUTION_REQUEST = 1000;
+    static int TAKE_PIC = 1;
     // Location updates intervals in sec
     private static int UPDATE_INTERVAL = 30000; // 300 sec or 5 minutes
     private static int FATEST_INTERVAL = 5000; // 5 sec
     private static int DISPLACEMENT = 5; // 30 meters
+    Uri outPutfileUri;
+
 
     Toolbar toolbar;
     NavigationView navigationView;
     DrawerLayout drawerLayout;
     Stack<Fragment> fragmentStack;
     Dialog dialog;
+
+    ActionBarDrawerToggle drawerToggle;
+    FragmentTransaction fragmentManager;
+
+    android.support.v4.app.Fragment mainFragment;
     /**
      * Called when the activity is first created.
      */
 
     UserLocalStore userLocalStore;
-    String[] android_versions = {
-            "Community", "Services", "Events"};
-    GridView grid;
-    String[] web = {
-            "Google",
-            "Github",
-            "Instagram",
-            "Facebook",
-            "Flickr",
-            "Pinterest",
 
-    };
-
-    //-----------------------------------------------
-    //-------variables for location services---------
-    int[] imageId = {
-            R.drawable.car_theft,
-            R.drawable.burglary,
-            R.drawable.robbery,
-            R.drawable.flooding,
-            R.drawable.shooting,
-            R.drawable.pickpocket,
-            R.drawable.warning};
     ListView listView;//List View object declaration
     ArrayAdapter<String> adapter;
     LocationManager locationManager;
@@ -117,6 +103,66 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
         } else
             Log.v("userName", loggedInUser.firstName);
 
+
+        // Initializing Toolbar and setting it as the actionbar
+        toolbar = (Toolbar) findViewById(R.id.toolbarMain);
+        if (toolbar != null) {
+            setSupportActionBar(toolbar);
+        }
+
+        mainFragment = new FragmentMainActivity();
+
+        setMainFragment(mainFragment);
+
+        //Initializing NavigationView
+        navigationView = (NavigationView) findViewById(R.id.navigation_view);
+
+        setupDrawerContent(navigationView);
+
+
+        // Initializing Drawer Layout and ActionBarToggle
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawer);
+
+        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.drawer_open, R.string.drawer_close) {
+
+            @Override
+            public void onDrawerClosed(View drawerView) {
+                // Code here will be triggered once the drawer closes as we dont want anything to happen so we leave this blank
+                super.onDrawerClosed(drawerView);
+            }
+
+            @Override
+            public void onDrawerOpened(View drawerView) {
+                // Code here will be triggered once the drawer open as we dont want anything to happen so we leave this blank
+
+                super.onDrawerOpened(drawerView);
+            }
+        };
+
+        //Setting the actionbarToggle to drawer layout
+        drawerLayout.setDrawerListener(actionBarDrawerToggle);
+
+        //calling sync state is necessary or else your hamburger icon wont show up
+        actionBarDrawerToggle.syncState();
+
+
+       /* Button dialogButton = (Button) findViewById(R.id.fileReportButton);
+        dialogButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fileReport();
+
+            }
+        });
+
+        Button communityDetails = (Button) findViewById(R.id.communityDetails);
+        communityDetails.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                commmunityDetails();
+
+            }
+        });*/
         //-------------------location sevices-----------------------------------------
 
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
@@ -138,91 +184,14 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
         fragmentStack = new Stack<Fragment>();
 
         // Initializing Toolbar and setting it as the actionbar
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
+     /*   toolbar = (Toolbar) findViewById(R.id.toolbarMain);
         if (toolbar != null) {
             setSupportActionBar(toolbar);
         }
-
-        //FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-
-        findViewById(R.id.fab).setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                //Write here anything that you wish to do on click of FAB
-                // Code to Add an item with default animation
-                // Snackbar.make(v, "Hello Snackbar", Snackbar.LENGTH_LONG).show();
-
-                // TODO Auto-generated method stub
-                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                builder.setTitle("Alert Dialog");
-                builder.setMessage("This is Example of Alert Dialog with three Buttons");
-
-                CustomGrid adapter = new CustomGrid(MainActivity.this, web, imageId);
-                //  grid=(GridView)findViewById(R.id.grid);
-                grid.setAdapter(adapter);
-                grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-                    @Override
-                    public void onItemClick(AdapterView<?> parent, View view,
-                                            int position, long id) {
-                        Toast.makeText(MainActivity.this, "You Clicked at " + web[+position], Toast.LENGTH_SHORT).show();
-
-                    }
-                });
+*/
 
 
-                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-
-                    @Override
-                    public void onClick(DialogInterface arg0, int arg1) {
-                        // TODO Auto-generated method stub
-                        Toast.makeText(getApplicationContext(), "Ok is clicked", Toast.LENGTH_LONG).show();
-
-                    }
-                });
-                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-
-                    @Override
-                    public void onClick(DialogInterface arg0, int arg1) {
-                        // TODO Auto-generated method stub
-                        Toast.makeText(getApplicationContext(), "Cancel is clicked", Toast.LENGTH_LONG).show();
-
-                    }
-                });
-                builder.setNeutralButton("Close", new DialogInterface.OnClickListener() {
-
-                    @Override
-                    public void onClick(DialogInterface arg0, int arg1) {
-                        // TODO Auto-generated method stub
-                        Toast.makeText(getApplicationContext(), "Close is clicked", Toast.LENGTH_LONG).show();
-
-                    }
-                });
-                builder.show(); //To show the AlertDialog
-
-
-            }
-        });
-
-
-        listView = (ListView) findViewById(R.id.id_list_view);// object initialization
-
-        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android_versions);
-
-        listView.setAdapter(adapter);//connect the adapter to list view
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-           // ArrayAdapter<String> adapter;
-
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getBaseContext(), parent.getItemAtPosition(position) + " is Selected", Toast.LENGTH_LONG).show();
-            }
-        });
-
-
-        //Initializing NavigationView
+       /* //Initializing NavigationView
         navigationView = (NavigationView) findViewById(R.id.navigation_view);
 
         //Setting Navigation View Item Selected Listener to handle the item click of the navigation menu
@@ -245,26 +214,24 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
 
 
                     //Replacing the main content with ContentFragment Which is our Inbox View;
-                    case R.id.inbox:
+                    case R.id.home:
                         Toast.makeText(getApplicationContext(), "Inbox Selected", Toast.LENGTH_SHORT).show();
                         ContentFragment fragment = new ContentFragment();
                         android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                        fragmentTransaction.replace(R.id.frame, fragment);
-                        fragmentTransaction.addToBackStack(null);
-                        fragmentTransaction.commit();
+
                         return true;
 
                     // For rest of the options we just show a toast on click
 
-                    case R.id.starred:
+                    case R.id.logout:
                         Toast.makeText(getApplicationContext(), "Stared Selected", Toast.LENGTH_SHORT).show();
                         return true;
-                   /* case R.id.sent_mail:
+                   *//* case R.id.sent_mail:
                         Toast.makeText(getApplicationContext(), "Send Selected", Toast.LENGTH_SHORT).show();
                         return true;
                     case R.id.drafts:
                         Toast.makeText(getApplicationContext(), "Drafts Selected", Toast.LENGTH_SHORT).show();
-                        return true;*/
+                        return true;*//*
                     case R.id.police:
                         Intent police = new Intent(Intent.ACTION_CALL, Uri.parse("tel:0000000000"));
                         try {
@@ -298,10 +265,10 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
                 }
             }
         });
-
-        // Initializing Drawer Layout and ActionBarToggle
+*/
+     /*   // Initializing Drawer Layout and ActionBarToggle
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer);
-        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.openDrawer, R.string.closeDrawer) {
+         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.openDrawer, R.string.closeDrawer) {
 
             @Override
             public void onDrawerClosed(View drawerView) {
@@ -321,14 +288,145 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
         drawerLayout.setDrawerListener(actionBarDrawerToggle);
 
         //calling sync state is necessay or else your hamburger icon wont show up
-        actionBarDrawerToggle.syncState();
+        actionBarDrawerToggle.syncState();*/
 
 
     }
 
+    // Make sure this is the method with just `Bundle` as the signature
+    @Override
+    protected void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+
+        // Sync the toggle state after onRestoreInstanceState has occurred.
+        //drawerToggle.syncState();
+
+    }
+
+    public void communityDetails(View v) {
+        Intent myIntent = new Intent(this, CommunityActivity.class);
+        startActivity(myIntent);
+    }
+
+    public void servicesDetails(View v) {
+        Intent myIntent = new Intent(this, ServicesActivity.class);
+        startActivity(myIntent);
+    }
+
+    public void setMainFragment(android.support.v4.app.Fragment mainFragment) {
+        fragmentManager = getSupportFragmentManager().beginTransaction();
+        fragmentManager.replace(R.id.frame, mainFragment);
+        fragmentManager.commit();
+
+    }
+
+
+    private void setupDrawerContent(NavigationView navigationView) {
+        navigationView.setNavigationItemSelectedListener(
+                new NavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(MenuItem menuItem) {
+                        selectDrawerItem(menuItem);
+                        return true;
+                    }
+                });
+    }
+
+    public void selectDrawerItem(MenuItem menuItem) {
+        // Create a new fragment and specify the planet to show based on
+        // position
+        android.support.v4.app.Fragment fragment = null;
+
+        Class fragmentClass;
+        switch (menuItem.getItemId()) {
+            case R.id.home:
+                fragmentClass = FragmentMainActivity.class;
+                break;
+            case R.id.logout:
+                fragmentClass = null;
+                break;
+
+            default:
+                fragmentClass = FragmentMainActivity.class;
+
+        }
+
+        try {
+            fragment = (android.support.v4.app.Fragment) fragmentClass.newInstance();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        String backStateName = fragment.getClass().getName();
+        // Insert the fragment by replacing any existing fragment
+        fragmentManager = getSupportFragmentManager().beginTransaction();
+        fragmentManager.replace(R.id.frame, fragment);
+        fragmentManager.addToBackStack(backStateName);
+        fragmentManager.commit();
+
+        // Highlight the selected item, update the title, and close the drawer
+        menuItem.setChecked(true);
+        setTitle(menuItem.getTitle());
+        drawerLayout.closeDrawers();
+    }
+
+   /* public void commmunityDetails()
+{
+    Intent intent = new Intent(this, Community.class);
+    startActivity(intent);
+
+}
+
+    public void fileReport() {
+
+        *//*Dialog dialog = new Dialog(MainActivity.this);
+        dialog.setContentView(R.layout.file_report);
+        dialog.setTitle("Hello");
+
+        dialog.show();
+
+        final AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+        dialog.setTitle("Enable Location")
+                .setMessage("Your Locations Settings is set to 'Off'.\nPlease Enable Location to " +
+                        "use this app .\nUsing Home group only. Some features Unavailable ")
+                .setPositiveButton("Location Settings", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface paramDialogInterface, int paramInt) {
+                        Intent myIntent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+                        startActivity(myIntent);
+                    }
+                })
+                .setNegativeButton("No Thanks", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface paramDialogInterface, int paramInt) {
+                    }
+                });
+        dialog.show();*//*
+
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        // Get the layout inflater
+        LayoutInflater inflater = this.getLayoutInflater();
+
+        // Inflate and set the layout for the dialog
+        // Pass null as the parent view because its going in the dialog layout
+        builder.setView(inflater.inflate(R.layout.file_report, null));
+        builder.show();
+    }
+
+    public void CameraClick(View v) {
+
+        Intent intent= new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        File file = new File(Environment.getExternalStorageDirectory(),
+                "MyPhoto.jpg");
+        outPutfileUri = Uri.fromFile(file);
+        intent.putExtra(MediaStore.EXTRA_OUTPUT, outPutfileUri);
+        startActivityForResult(intent, TAKE_PIC);
+    }*/
     //-------TOO REMOVE, FOR TESTING ONLY---------------------------------------------------------
     //-----------------------------------------------
     //-----------------------------------------------
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -342,15 +440,26 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+     /*   int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }
+*/
+        if (drawerToggle.onOptionsItemSelected(item)) {
+            return true;
+        }
 
+
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                drawerLayout.openDrawer(GravityCompat.START);
+                return true;
+        }
         return super.onOptionsItemSelected(item);
     }
+
 
     @Override
     public void onBackPressed() {

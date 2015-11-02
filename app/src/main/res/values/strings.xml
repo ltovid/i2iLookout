@@ -17,6 +17,10 @@
     <string name="closeDrawer">Navigation View</string>
     <string name="openDrawer">Navigation View Closed</string>
 
+    <string name="drawer_open">open</string>
+    <string name="drawer_close">close</string>
+
+    <string name="title_activity_goods__services">Goods_Services</string>
 
     <string name="police"> POLICE </string>
     <string name="fire"> FIRE </string>
@@ -64,7 +68,8 @@
     <string name="addrLn2">Address Line 2</string>
     <string name="addrNum">House#</string>
     <string name="buttonJoinCommunity">Join this Community</string>
-    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_main">LOOKOUT-TT</string>
     <string name="title_activity_onboarding">Onboarding</string>
+    <string name="title_activity_community">Community</string>
 
 </resources>

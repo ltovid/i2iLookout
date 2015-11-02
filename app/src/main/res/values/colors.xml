@@ -9,6 +9,7 @@
     <color name="primary_text">#212121</color>
     <color name="secondary_text">#727272</color>
     <color name="icons">#FFFFFF</color>
+    <color name="white">#FFFFFF</color>
     <color name="divider">#B6B6B6</color>
     <color name="holo_blue_dark">#ff0099cc</color>
     <color name="view_divider_color">#BABABA</color>
@@ -29,4 +30,16 @@
 
     <color name="bg_view_sms">#ffd423</color>
     <color name="bg_view_otp">#fc6d38</color>
+
+
+    <color name="frame">#b4b4b4</color>
+    <color name="frame_solid">#eee</color>
+    <color name="frame_background">#bcbcbc</color>
+    <color name="LightPrimaryColor">#FFCDD2</color>
+    <color name="AccentColorGrey">#9E9E9E</color>
+    <color name="AccentColorBlueGrey">#607D8B</color>
+    <color name="PrimaryText">#212121</color>
+    <color name="SecondaryText">#727272</color>
+    <color name="Text_Icons">#FFFFFF</color>
+    <color name="DividerColor">#B6B6B6</color>
 </resources>

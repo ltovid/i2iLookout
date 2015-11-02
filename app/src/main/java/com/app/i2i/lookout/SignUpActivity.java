@@ -51,7 +51,7 @@ public class SignUpActivity extends LoginActivity {
         mToolbar = (Toolbar) findViewById(R.id.toolbarSignUp);
         if (mToolbar != null) {
             setSupportActionBar(mToolbar);
-            mToolbar.setNavigationIcon(R.drawable.abc_edit_text_material);
+            // mToolbar.setNavigationIcon(R.drawable.abc_edit_text_material);
         }
 
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {

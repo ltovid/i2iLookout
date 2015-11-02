@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="5dp">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardview"
+        android:layout_width="fill_parent"
+        android:layout_height="235dp"
+        android:layout_gravity="top"
+        android:padding="8dp">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/bulletin_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="LOOKOUT-TT : MISSING PERSON"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#ff1a14"
+                android:textSize="18dp" />
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="wrap_content"
+                android:layout_height="175dp"
+                android:layout_below="@+id/bulletin_title"
+                android:maxHeight="120dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/missing" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imageView5"
+                android:text="HAVE YOU SEEN JANE DOE?"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#0a000d" />
+
+        </RelativeLayout>
+
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="8dp"
+        android:textColor="?attr/colorPrimaryDark">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <ImageView
+                android:id="@+id/person_photo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="16dp"
+                android:src="@drawable/ic_add" />
+
+            <TextView
+                android:id="@+id/person_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_toRightOf="@+id/person_photo"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/person_age"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/person_name"
+                android:layout_toRightOf="@+id/person_photo" />
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="communityDetails"
+        android:text="Community Services" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Crime and Safety" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="servicesDetails"
+        android:text="Goods and Services Near Me" />
+
+</LinearLayout>

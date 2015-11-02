@@ -1,0 +1,44 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000">
+
+    <ImageView
+        android:id="@+id/move_poster"
+        android:layout_width="100dp"
+        android:layout_height="75dp"
+        android:layout_alignParentLeft="true"
+        android:src="@drawable/profile"
+
+        />
+
+    <TextView
+        android:id="@+id/move_title"
+        android:layout_width="175dp"
+        android:layout_height="75dp"
+        android:layout_toRightOf="@+id/move_poster"
+        android:gravity="center"
+        android:text="this is a move name"
+        android:textColor="#FFFFFF"
+
+
+        />
+
+    <TextView
+        android:id="@+id/move_rating"
+        android:layout_width="wrap_content"
+        android:layout_height="75dp"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@+id/move_title"
+        android:gravity="center"
+        android:text="this is a rating"
+        android:textColor="#FFFFFF" />
+
+    <View
+
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_below="@+id/move_poster"
+        android:background="#FFFFFF"></View>
+
+</RelativeLayout>

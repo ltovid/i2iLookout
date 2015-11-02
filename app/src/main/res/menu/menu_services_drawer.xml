@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    android:clickable="true">
+
+    <group android:clickable="false">
+
+        <item
+            android:id="@+id/home"
+            android:checked="false"
+            android:icon="@drawable/home"
+            android:title="Home" />
+
+
+        <item
+            android:id="@+id/addService"
+            android:checked="false"
+            android:icon="@drawable/small_business"
+            android:title="Offer Service" />
+        <item
+            android:id="@+id/request"
+            android:checked="false"
+            android:icon="@drawable/message"
+            android:title="Service Request" />
+
+    </group>
+    <item android:title="CATEGORIES">
+        <menu>
+            <item
+                android:id="@+id/crime"
+                android:checked="false"
+                android:icon="@drawable/police_station"
+                android:title="CRIME and SAFETY" />
+            <item
+                android:id="@+id/community"
+                android:checked="false"
+                android:icon="@drawable/fire_station"
+                android:title="COMMUNITY DETAILS" />
+
+        </menu>
+    </item>
+
+</menu>
