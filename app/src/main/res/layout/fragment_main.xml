@@ -1,53 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:padding="5dp">
+    android:padding="0dp">
 
-    <android.support.v7.widget.CardView
-        android:id="@+id/cardview"
-        android:layout_width="fill_parent"
-        android:layout_height="235dp"
-        android:layout_gravity="top"
-        android:padding="8dp">
+    <!--
+        <android.support.v7.widget.CardView
+            android:id="@+id/cardview"
+            android:layout_width="match_parent"
+            android:layout_height="235dp"
+            android:layout_gravity="top"
+            android:padding="8dp">
+    -->
 
-        <RelativeLayout
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:background="@android:color/white"
+        android:fillViewport="false"
+        android:keepScreenOn="true"
+        android:padding="4dp"
+        android:scrollbarAlwaysDrawHorizontalTrack="true"
+        android:scrollbarStyle="outsideOverlay"
+        android:scrollbarTrackHorizontal="@android:color/holo_red_light">
+
+        <LinearLayout
+            android:id="@+id/imageGallery"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:clickable="true"
+            android:dividerPadding="4dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:gravity="clip_horizontal|center"
+            android:nestedScrollingEnabled="false"
+            android:orientation="horizontal"
+            android:padding="4dp"
+            android:scaleType="fitCenter"
+            android:showDividers="middle|end" />
+    </HorizontalScrollView>
+    <!--<RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/bulletin_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="LOOKOUT-TT : MISSING PERSON"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="#ff1a14"
-                android:textSize="18dp" />
+        <TextView
+            android:id="@+id/bulletin_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LOOKOUT-TT : MISSING PERSON"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#ff1a14"
+            android:textSize="18dp" />
 
-            <ImageView
-                android:id="@+id/imageView5"
-                android:layout_width="wrap_content"
-                android:layout_height="175dp"
-                android:layout_below="@+id/bulletin_title"
-                android:maxHeight="120dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/missing" />
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="wrap_content"
+            android:layout_height="175dp"
+            android:layout_below="@+id/bulletin_title"
+            android:maxHeight="120dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/missing" />
 
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/imageView5"
-                android:text="HAVE YOU SEEN JANE DOE?"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="#0a000d" />
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageView5"
+            android:text="HAVE YOU SEEN JANE DOE?"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#0a000d" />
 
-        </RelativeLayout>
-
-
-    </android.support.v7.widget.CardView>
+    </RelativeLayout>-->
+    <!-- </android.support.v7.widget.CardView>
+ </RelativeLayout>-->
 
     <android.support.v7.widget.CardView
         android:layout_width="fill_parent"
@@ -55,7 +83,6 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="8dp"
         android:textColor="?attr/colorPrimaryDark">
-
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
