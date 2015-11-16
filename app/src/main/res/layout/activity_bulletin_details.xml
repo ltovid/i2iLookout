@@ -1,0 +1,144 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/laywrap"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbarBulletinDetails"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbarBulletinDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:background="?attr/colorPrimary" />
+    </android.support.design.widget.AppBarLayout>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/appbarBulletinDetails"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="8dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/missing" />
+
+        <TextView
+            android:id="@+id/bulletinTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="false"
+            android:layout_below="@+id/imageView"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:text="HAVE YOU SEEN THIS PERSON?"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/colorAccent" />
+        android:layout_alignParentEnd="true" />
+
+        <TextView
+            android:id="@+id/person_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="false"
+            android:layout_below="@+id/bulletinTitle"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:text="JOHN UNKNOWN DOE"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="21dp" />
+
+        <TextView
+            android:id="@+id/person_age"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="false"
+            android:layout_below="@+id/person_name"
+            android:layout_marginTop="8dp"
+            android:text="AGE: 21"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/person_height"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/person_name"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_toRightOf="@+id/person_age"
+            android:text="HEIGHT: 5&apos; 6&quot;"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/textViewWeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/person_name"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_toEndOf="@+id/person_height"
+            android:layout_toRightOf="@+id/person_height"
+            android:text="WEIGHT: 175lb"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/last_seen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewWeight"
+            android:layout_marginTop="4dp"
+            android:text="Description: medium build, short,dark-brown hair. Last seen wearing blue jeans, a blue-and-red checked shirt.;"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/otherInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/last_seen"
+            android:layout_marginBottom="16dp"
+            android:layout_marginTop="8dp"
+            android:text="Other information: Failed to turn up at his grandfather's funeral"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="14sp" />
+
+
+        <Button
+            android:id="@+id/report"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/otherInfo"
+            android:text="Report" />
+
+        <TextView
+            android:id="@+id/mainText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView2"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="16sp" />
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

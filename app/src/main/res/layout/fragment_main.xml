@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fab="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="0dp">
+
+    <HorizontalScrollView
+        android:id="@+id/galleryWrapper"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_weight=".2"
+        android:background="@android:color/white"
+        android:fillViewport="false"
+        android:keepScreenOn="true"
+        android:padding="4dp"
+        android:scrollbarAlwaysDrawHorizontalTrack="true"
+        android:scrollbarStyle="outsideOverlay"
+        android:scrollbarTrackHorizontal="@android:color/holo_red_light">
+
+        <RelativeLayout
+            android:id="@+id/imageGallery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:clickable="true"
+            android:dividerPadding="4dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:gravity="clip_horizontal|center"
+            android:nestedScrollingEnabled="false"
+            android:orientation="horizontal"
+            android:padding="4dp"
+            android:scaleType="fitCenter"
+            android:showDividers="middle|end" />
+    </HorizontalScrollView>
+
+    <LinearLayout
+        android:id="@+id/main_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/galleryWrapper"
+        android:orientation="vertical">
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/community"
+            android:gravity="left|center_vertical"
+            android:onClick="communityDetails"
+            android:text="Community newS" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/francophone"
+            android:gravity="left|center_vertical"
+            android:onClick="psaDetails"
+            android:text="Crime and Safety" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/market"
+            android:gravity="left|center_vertical"
+            android:onClick="servicesDetails"
+            android:text="Services Near Me" />
+    </LinearLayout>
+    <!--    <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/galleryWrapper"
+            android:layout_alignParentEnd="true">-->
+
+
+    <FrameLayout
+        android:id="@+id/frame_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentRight="false"
+        android:layout_alignParentStart="false"
+        android:layout_alignWithParentIfMissing="false"
+        android:background="@android:color/transparent">
+
+        <com.getbase.floatingactionbutton.FloatingActionsMenu
+            android:id="@+id/fab_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|bottom|center_horizontal"
+            fab:fab_addButtonColorNormal="@color/accent"
+            fab:fab_addButtonColorPressed="@color/accent_dark"
+            fab:fab_addButtonPlusIconColor="@color/white"
+            fab:fab_addButtonStrokeVisible="false"
+            fab:fab_labelStyle="@style/acc"
+            fab:fab_labelsPosition="left">
+
+            <com.getbase.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab_call"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/wphone"
+                fab:fab_colorNormal="@color/accent"
+                fab:fab_colorPressed="@color/accent_dark"
+                fab:fab_icon="@drawable/wphone"
+                fab:fab_plusIconColor="@color/white"
+                fab:fab_size="mini"
+                fab:fab_title="CALL" />
+
+
+            <com.getbase.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab_robbery"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="reportCrime"
+                android:src="@drawable/wrobbery"
+                fab:fab_colorNormal="@color/accent"
+                fab:fab_colorPressed="@color/accent_dark"
+                fab:fab_icon="@drawable/wrobbery"
+                fab:fab_plusIconColor="@color/white"
+                fab:fab_size="mini"
+                fab:fab_title="Robbery" />
+
+            <com.getbase.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab_car_theft"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="reportCarTheft"
+                android:src="@drawable/wcar_theft"
+                fab:fab_colorNormal="@color/accent"
+                fab:fab_colorPressed="@color/accent_dark"
+                fab:fab_icon="@drawable/wcar_theft"
+                fab:fab_plusIconColor="@color/white"
+                fab:fab_size="mini"
+                fab:fab_title="Car Theft" />
+
+            <com.getbase.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab_crash"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="reportAccident"
+                android:src="@drawable/wcar_crash"
+                fab:fab_colorNormal="@color/accent"
+                fab:fab_colorPressed="@color/accent_dark"
+                fab:fab_icon="@drawable/wcar_crash"
+                fab:fab_plusIconColor="@color/white"
+                fab:fab_size="mini"
+                fab:fab_title="Accident" />
+
+        </com.getbase.floatingactionbutton.FloatingActionsMenu>
+    </FrameLayout>
+    <!--<com.getbase.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAddNews"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:src="@drawable/wphone"
+        android:layout_toLeftOf="@+id/frame_layout"
+        android:layout_alignBottom="@+id/frame_layout"
+        />-->
+</RelativeLayout>
+

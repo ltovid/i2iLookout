@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="fill_horizontal"
+    android:orientation="vertical"
+
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:background="@color/colorPrimary"
+        android:padding="8dp"
+        android:text="Report An Accident" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+            android:layout_marginRight="4dp"
+            android:background="@color/white"
+            android:drawableLeft="@drawable/accident"
+            android:drawableStart="@drawable/accident" />
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="4dp"
+            android:layout_toRightOf="@+id/button"
+            android:background="@color/white"
+            android:drawableLeft="@drawable/collision" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/button1"
+            android:background="@color/white"
+            android:drawableLeft="@drawable/hit_ppl" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:ems="10"
+        android:gravity="top"
+        android:hint="Description"
+        android:inputType="textMultiLine"
+        android:lines="5"
+        android:textSize="12sp" />
+
+
+        <EditText
+            android:id="@+id/editText3"
+            android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/imageButton"
+            android:layout_below="@+id/editText2"
+            android:ems="10"
+            android:hint="Location"
+            android:inputType="textMultiLine"
+            android:textSize="12sp" />
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/editText2"
+            android:layout_toRightOf="@id/editText3"
+            android:src="@drawable/ic_pin_drop_black_24dp"
+
+            />
+
+        <Button
+            android:id="@+id/submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageButton"
+            android:layout_marginBottom="@dimen/TopMargin16"
+            android:layout_marginTop="@dimen/TopMargin16"
+            android:text="Send" />
+    </RelativeLayout>
+
+
+</LinearLayout>

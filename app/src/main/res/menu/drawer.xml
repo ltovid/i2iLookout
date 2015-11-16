@@ -5,36 +5,42 @@
 
     <group android:clickable="false">
 
-        <item
-            android:id="@+id/inbox"
-            android:checked="false"
-            android:title="@string/inbox_string" />
 
         <item
-            android:id="@+id/starred"
+            android:id="@+id/home"
             android:checked="false"
-            android:title="@string/starred_string" />
+            android:icon="@drawable/home"
+            android:title="Home" />
+        <item
+            android:id="@+id/invite"
+            android:checked="false"
+            android:icon="@drawable/add_user"
+            android:title="Invite Friends" />
+        <item
+            android:id="@+id/logout"
+            android:checked="false"
+            android:icon="@drawable/exit"
+            android:title="Logout" />
 
-
-</group>
+    </group>
 
     <item android:title="Emergency Services">
         <menu>
             <item
                 android:id="@+id/police"
                 android:checked="false"
-                android:title="@string/police"
-                android:icon="@drawable/police_station"/>
+                android:icon="@drawable/police_station"
+                android:title="POLICE" />
             <item
                 android:id="@+id/fire"
                 android:checked="false"
-                android:title="@string/fire"
-                android:icon="@drawable/fire_station"/>
+                android:icon="@drawable/fire_station"
+                android:title="FIRE STATION" />
             <item
                 android:id="@+id/hospital"
                 android:checked="false"
-                android:title="@string/hospital"
-                android:icon="@drawable/hospital"/>
+                android:icon="@drawable/hospital"
+                android:title="HOSPITAL" />
         </menu>
     </item>
 </menu>

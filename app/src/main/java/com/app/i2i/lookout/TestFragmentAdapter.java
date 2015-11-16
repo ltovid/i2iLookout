@@ -6,10 +6,10 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 class TestFragmentAdapter extends FragmentPagerAdapter {
     private int[] offerImages = {
-            R.drawable.background_material_pinkplue,
-            R.drawable.background_material,
-            R.drawable.background_material_purple,
-            R.drawable.dish_sample
+            R.drawable.intro_text_1,
+            R.drawable.intro_text_2,
+            R.drawable.intro_text_3,
+            R.drawable.intro_text_4
     };
 
     private int mCount = offerImages.length;

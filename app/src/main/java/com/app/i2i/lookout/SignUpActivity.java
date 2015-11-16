@@ -8,6 +8,7 @@ import android.telephony.TelephonyManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -24,11 +25,16 @@ public class SignUpActivity extends LoginActivity {
 
     //this is the button to sign-in with email and password
     User user;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
+
+        mToolbar = (Toolbar) findViewById(R.id.toolbarSignUp);
+        if (mToolbar != null) {
+            setSupportActionBar(mToolbar);
+            // mToolbar.setNavigationIcon(R.drawable.abc_edit_text_material);
+        }
 
         userLocalStore = new UserLocalStore(this);
 
@@ -46,45 +52,37 @@ public class SignUpActivity extends LoginActivity {
         etCity = (EditText) findViewById(R.id.signUp_city_address);
 
         //This is the NEXT button on activity_sign_up.xml
-        findViewById(R.id.signInActiviy).setOnClickListener(this);
-
-        mToolbar = (Toolbar) findViewById(R.id.toolbarSignUp);
-        if (mToolbar != null) {
-            setSupportActionBar(mToolbar);
-            mToolbar.setNavigationIcon(R.drawable.abc_edit_text_material);
-        }
-
-        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
-
+        Button signup = (Button) findViewById(R.id.btn_sign_up);
+        signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(SignUpActivity.this, "Nav Pressed", Toast.LENGTH_SHORT).show();
+                switch (v.getId()) {
+                    case R.id.btn_sign_up:
+                        String firstName = etFName.getText().toString();
+                        String lastName = etLName.getText().toString();
+                        String userName = etUsername.getText().toString();
+                        String password = etPassword.getText().toString();
+                        String homeGroup = etCity.getText().toString();
+
+                        String device = getUserDevice(getApplicationContext());
+
+                        user = new User(firstName, lastName, userName, password, device);
+
+                        user.homeGroup = homeGroup;
+
+
+                        registerUser(user);
+                        break;
+                }
             }
+
         });
-
-
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.signInActiviy:
-                String firstName = etFName.getText().toString();
-                String lastName = etLName.getText().toString();
-                String userName = etUsername.getText().toString();
-                String password = etPassword.getText().toString();
-                String homeGroup = etCity.getText().toString();
 
-                String device = getUserDevice(getApplicationContext());
-
-                user = new User(firstName, lastName, userName, password, device);
-
-                user.homeGroup = homeGroup;
-
-
-                registerUser(user);
-                break;
-        }
+    public void signIn(View view) {
+        Intent i = new Intent(this, SignInActivity.class);
+        startActivity(i);
     }
 
     public String getUserDevice(Context context) {
@@ -92,8 +90,6 @@ public class SignUpActivity extends LoginActivity {
         TelephonyManager mngr = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
         return mngr.getDeviceId();
     }
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -134,7 +130,7 @@ public class SignUpActivity extends LoginActivity {
                     if (returnedUser.status != 3) {
                         //Intent joinGroup = new Intent(SignUpActivity.this, com.app.i2i.lookout.JoinCommunityActivity.class);
                         Toast.makeText(getApplicationContext(), "Hello " + returnedUser.firstName, Toast.LENGTH_LONG).show();
-                        Intent mainActivity = new Intent(SignUpActivity.this, com.app.i2i.lookout.MainActivity.class);
+                        Intent mainActivity = new Intent(SignUpActivity.this, MainActivity.class);
                         startActivity(mainActivity);
                     } else {
                         Toast.makeText(getApplicationContext(), "User is already registered, please sign in", Toast.LENGTH_LONG).show();
@@ -148,6 +144,4 @@ public class SignUpActivity extends LoginActivity {
 
 
     }//end of registerUser
-
-
 }
