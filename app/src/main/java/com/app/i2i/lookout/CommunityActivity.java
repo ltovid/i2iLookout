@@ -1,12 +1,17 @@
 package com.app.i2i.lookout;
 
+import android.app.AlertDialog;
+import android.app.SearchManager;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.SearchView;
 
 public class CommunityActivity extends AppCompatActivity {
     Toolbar toolbar;
@@ -18,26 +23,25 @@ public class CommunityActivity extends AppCompatActivity {
             R.drawable.calendar,
             R.drawable.speaker
     };
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_community);
         // Initializing Toolbar and setting it as the actionbar
         toolbar = (Toolbar) findViewById(R.id.toolbarCommunity);
         if (toolbar != null) {
             setSupportActionBar(toolbar);
         }
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
         tabLayout.addTab(tabLayout.newTab().setText("News"));
         tabLayout.addTab(tabLayout.newTab().setText("Notices"));
         tabLayout.addTab(tabLayout.newTab().setText("Events"));
 
-        //tabLayout.getTabAt(0).setIcon(tabIcons[0]);
-        // tabLayout.getTabAt(1).setIcon(tabIcons[2]);
-        // tabLayout.getTabAt(2).setIcon(tabIcons[1]);
+        tabLayout.getTabAt(0).setIcon(tabIcons[0]);
+        tabLayout.getTabAt(1).setIcon(tabIcons[2]);
+        tabLayout.getTabAt(2).setIcon(tabIcons[1]);
 
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
@@ -87,7 +91,7 @@ public class CommunityActivity extends AppCompatActivity {
 
     }
 
-/*
+
     public void fileReport() {
 
 
@@ -99,13 +103,19 @@ public class CommunityActivity extends AppCompatActivity {
         // Pass null as the parent view because its going in the dialog layout
         builder.setView(inflater.inflate(R.layout.file_report, null));
         builder.show();
-    }*/
-
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_community, menu);
-        return true;
+
+        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        SearchView searchView = (SearchView) menu.findItem(R.id.menu_item_search).getActionView();
+
+
+        return super.onCreateOptionsMenu(menu);
+
+        //return true;
 
     }
 

@@ -2,147 +2,126 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/primary_light"
+
+    android:foregroundGravity="left"
+    android:gravity="left"
+    android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.app.i2i.lookout.SignUpActivity">
 
-    <include
-        android:id="@+id/toolbarSignUp"
-        layout="@layout/toolbar_sign_up" />
 
-    <!-- <ImageView
-         android:layout_width="match_parent"
-         android:layout_height="wrap_content"
-         android:id="@+id/imageView3"
-         android:layout_alignParentStart="true"
-         android:src="@drawable/logo" />-->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="16dp">
 
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/toolbarSignUp"
-        android:layout_marginLeft="@dimen/activity_horizontal_margin"
-        android:layout_marginRight="@dimen/activity_horizontal_margin"
-        android:layout_marginTop="@dimen/activity_horizontal_margin">
-
-        <com.google.android.gms.common.SignInButton
-            android:id="@+id/sign_in_button"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp" />
-
-        <TextView
-            android:id="@+id/separator"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/sign_in_button"
-            android:layout_marginBottom="@dimen/TopMargin16"
-            android:gravity="center"
-            android:text="@string/separator" />
+        <ImageView
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="16dp"
+            android:scaleType="fitStart"
+            android:src="@drawable/start" />
 
         <RelativeLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <!--  Name First Label -->
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/signUpNameWrapper"
+                android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/separator">
-
-            <TextView
-                android:id="@+id/signUpHeader"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:padding="10dp"
-                android:text="@string/email_signup"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <LinearLayout
-                android:id="@+id/NameWrapper"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/signUpHeader">
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp">
 
                 <EditText
                     android:id="@+id/signUpName"
-                    android:layout_width="wrap_content"
+                    android:layout_width="150dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/TopMargin8"
-                    android:layout_weight="1"
-                    android:background="@color/white"
-                    android:drawableLeft="@drawable/ic_person_black_24dp"
-                    android:hint="@string/first_name"
-                    android:inputType="textPersonName"
-                    android:padding="8dp" />
+                    android:hint="First Name"
+                    android:inputType="textCapWords" />
+            </android.support.design.widget.TextInputLayout>
+
+            <!--  Name Last Label -->
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_toRightOf="@+id/signUpNameWrapper">
 
                 <EditText
                     android:id="@+id/signUp_Lastname"
-                    android:layout_width="wrap_content"
+                    android:layout_width="200dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/TopMargin8"
-                    android:layout_weight="1"
-                    android:background="@color/white"
-                    android:hint="@string/last_name"
-                    android:inputType="textPersonName"
-                    android:padding="8dp" />
-            </LinearLayout>
+                    android:hint="Last Name"
+                    android:inputType="textCapWords" />
+            </android.support.design.widget.TextInputLayout>
+        </RelativeLayout>
+
+        <!-- Email Label -->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp">
 
             <EditText
                 android:id="@+id/signUp_city_address"
-                android:layout_width="fill_parent"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/NameWrapper"
-                android:layout_marginTop="@dimen/TopMargin8"
-                android:background="@color/white"
-                android:drawableLeft="@drawable/ic_home_black_24dp"
-                android:hint="@string/city_hint"
-                android:inputType="text"
-                android:padding="8dp" />
+                android:hint="City" />
+        </android.support.design.widget.TextInputLayout>
 
+        <!-- Email Label -->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp">
 
             <EditText
                 android:id="@+id/signUp_email_address"
-                android:layout_width="fill_parent"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/signUp_city_address"
-                android:layout_marginTop="@dimen/TopMargin8"
-                android:background="@color/white"
-                android:drawableLeft="@drawable/ic_email_black_24dp"
-                android:hint="@string/email_hint"
-                android:inputType="textEmailAddress"
-                android:padding="8dp" />
+                android:hint="Email"
+                android:inputType="textEmailAddress" />
+        </android.support.design.widget.TextInputLayout>
+
+        <!-- Password Label -->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp">
 
             <EditText
                 android:id="@+id/signIn_password"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/signUp_email_address"
-                android:layout_marginTop="@dimen/TopMargin8"
-                android:background="@color/white"
-                android:drawableLeft="@drawable/ic_lock_outline_black_24dp"
-                android:hint="@string/password_hint"
-                android:inputType="textPassword"
-                android:padding="8dp"
-                />
-
-            <Button
-                android:id="@+id/signInActiviy"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/abc_action_button_min_height_material"
-                android:layout_below="@id/signIn_password"
-                android:layout_marginTop="@dimen/TopMargin8"
-                android:onClick="JoinCommunity"
-                android:text="@string/button_next" />
-
-
-            <TextView
-                android:id="@+id/agreement"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/signInActiviy"
-                android:layout_marginTop="@dimen/TopMargin8"
+                android:hint="Password"
+                android:inputType="textPassword" />
+        </android.support.design.widget.TextInputLayout>
 
-                android:text="@string/agreement"
-                android:textSize="@dimen/abc_text_size_small_material"
-                android:visibility="visible" />
-        </RelativeLayout>
-    </RelativeLayout>
+        <!-- Signup Button -->
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btn_sign_up"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:layout_marginTop="8dp"
+            android:padding="12dp"
+            android:text="Create Account" />
+
+        <TextView
+            android:id="@+id/link_login"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:gravity="center"
+            android:onClick="signIn"
+            android:text="Already a member? Login"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
 </RelativeLayout>

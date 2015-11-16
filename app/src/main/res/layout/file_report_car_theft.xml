@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="fill_horizontal"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:background="@color/colorPrimary"
+        android:padding="8dp"
+        android:text="Report A Stolen Vehicle" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/reporterType"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/TopMargin16">
+
+                <TextView
+                    android:id="@+id/radioTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/radio_pirates"
+                    android:text="I am a:" />
+
+                <RadioButton
+                    android:id="@+id/radio_pirates"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/radioTitle"
+                    android:text="Victim"
+
+                    />
+
+                <RadioButton
+                    android:id="@+id/radio_ninjas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/radio_pirates"
+                    android:text="Witness" />
+            </RelativeLayout>
+        </RadioGroup>
+
+        <RelativeLayout
+            android:id="@+id/crimeType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/reporterType"
+            android:padding="8dp">
+
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="16dp"
+                android:background="@color/colorPrimaryLight"
+                android:drawableTop="@drawable/robbery"
+                android:padding="8dp"
+                android:text="Car Jacking" />
+
+
+            <Button
+                android:id="@+id/button1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="4dp"
+                android:layout_toRightOf="@+id/button"
+                android:background="@color/colorPrimaryLight"
+                android:drawableTop="@drawable/car_theft"
+                android:padding="8dp"
+                android:text="CAR THEFT" />
+
+            <CheckBox
+                android:id="@+id/checkboxMyVehicle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/button1"
+                android:layout_marginTop="8dp"
+                android:text="My registered vehicle was stolen" />
+        </RelativeLayout>
+
+
+        <EditText
+            android:id="@+id/editText2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/crimeType"
+            android:background="@color/white"
+            android:ems="10"
+            android:gravity="top"
+            android:hint="Description"
+            android:inputType="textMultiLine"
+            android:lines="5"
+            android:textSize="12sp" />
+
+
+        <EditText
+            android:id="@+id/editText3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/imageButton"
+            android:layout_below="@+id/editText2"
+            android:ems="10"
+            android:hint="Location"
+            android:inputType="textMultiLine"
+            android:textSize="12sp" />
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/editText2"
+            android:layout_toRightOf="@id/editText3"
+            android:src="@drawable/wlocation"
+
+            />
+        LOVid7301
+        LOVid730!
+
+        <Button
+            android:id="@+id/picture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageButton"
+            android:layout_marginBottom="@dimen/TopMargin16"
+            android:layout_marginRight="4dp"
+            android:layout_marginTop="@dimen/TopMargin16"
+            android:drawableTop="@drawable/picture"
+
+            android:text="add picture" />
+
+
+        <Button
+            android:id="@+id/submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageButton"
+            android:layout_marginBottom="@dimen/TopMargin16"
+            android:layout_marginTop="@dimen/TopMargin16"
+            android:layout_toRightOf="@+id/picture"
+            android:drawableTop="@drawable/message"
+            android:text="REPORT" />
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>

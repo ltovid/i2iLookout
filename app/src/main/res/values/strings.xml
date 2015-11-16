@@ -71,5 +71,6 @@
     <string name="title_activity_main">LOOKOUT-TT</string>
     <string name="title_activity_onboarding">Onboarding</string>
     <string name="title_activity_community">Community</string>
+    <string name="share">share</string>
 
 </resources>

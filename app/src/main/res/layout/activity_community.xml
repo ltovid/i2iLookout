@@ -22,7 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/toolbarCommunity"
-            android:background="?attr/colorPrimary" />
+            android:background="@color/colorPrimaryLight" />
 
 
     </android.support.design.widget.AppBarLayout>
